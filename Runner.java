@@ -1,5 +1,8 @@
 class Runner {
     public static void main(String[] args) {
+
+        //YEEEEEEEEEEEEEERRRRRRRRRRRRRR
+        
         //Figure out primes to a certain amount and prints them out along with how long it took to find the primes.
         System.out.println("Primes...");
         long startTime = System.currentTimeMillis();
