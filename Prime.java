@@ -4,22 +4,30 @@ class Prime {
 
     private int[] primes;
     private int maxCheck;
-    private final int minPrime = 2;
+    private int minPrime = 2;
 
 
     public Prime(int maxToCheck) {
         maxCheck = maxToCheck;
-        this.findPrimes();
+    }
+
+    public void findPrimes() {
+        ArrayList<Integer> primes = new ArrayList<Integer> ();
+        findPrimes(primes);
     }
 
     /**
      * Calculates all the primes up to and including this.maxCheck
      * For each number that it checks, sees if any previous primes are divisible. If none are, it is a prime
-     * 
+     * @primes : the previously found prime numbers
      */
-    public void findPrimes() {
-        ArrayList<Integer> primes = new ArrayList<Integer> ();
-
+    public void findPrimes(ArrayList<Integer> primes) {
+        
+        //If primes are already found then start at the next possible prime
+        if (primes.size() > 0) {
+            minPrime = primes.get(primes.size()-1) + 1;
+        }
+        
         //Check all numbers up to and uncluding this.maxCheck
         for (int check = this.minPrime; check <= this.maxCheck; check++) {
             boolean isPrime = true;
