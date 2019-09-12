@@ -27,7 +27,7 @@ class Prime {
         if (primes.size() > 0) {
             minPrime = primes.get(primes.size()-1) + 1;
         }
-        
+
         //Check all numbers up to and uncluding this.maxCheck
         for (int check = this.minPrime; check <= this.maxCheck; check++) {
             boolean isPrime = true;
@@ -62,7 +62,7 @@ class Prime {
      * Prints out all the primes up to this.maxCheck
      */
     public void printPrimes() {
-        if (this.primes.length > 0) {
+        if (this.primes != null && this.primes.length > 0) {
             System.out.println("Primes up to " + maxCheck + ":");
             for (int i = 0; i < this.primes.length; i++) {
                 System.out.println("\t" + this.primes[i]);
