@@ -18,6 +18,8 @@ class PrimeSaver extends Prime{
      * Uses the Data class to store the primes on file.
      */
     public void StorePrimes() {
-        primesOnFile.writeToFile(this.primes);
+        if (this.maxCheck > this.primes[this.primes.length-1]) {
+            primesOnFile.writeToFile(this.primes);
+        }
     }
 }
