@@ -7,7 +7,7 @@ class PrimeSaver extends Prime{
     public PrimeSaver(int maxCheck) {
         super(maxCheck);
         primesOnFile = new Data("Primes.dat");
-        this.primes = primesOnFile.readFromFile();
+        this.primes = primesOnFile.readFromFile(maxCheck);
         if (this.primes != null && this.primes.length > 0) {
             this.minPrime = this.primes[this.primes.length-1]+1;
         }

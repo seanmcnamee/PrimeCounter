@@ -29,8 +29,9 @@ class Data {
 
     /**
      * Returns an array of integers from this.fileName
+     * @maxValue : The cap for taking in values from file.
      */
-    public int[] readFromFile() {
+    public int[] readFromFile(int maxValue) {
         ArrayList<Integer> listData = new ArrayList<Integer> ();
 
         try {
@@ -38,10 +39,10 @@ class Data {
             int dataPoint;
             do {
                 dataPoint = file.read();
-                if (dataPoint != -1) {
+                if (dataPoint != -1 && dataPoint <= maxValue) {
                     listData.add(dataPoint);
                 }
-            }   while (dataPoint != -1);
+            }   while (dataPoint != -1 && dataPoint <= maxValue);
             file.close();
         }   catch (IOException e) {
             System.out.println("Error - " + e.toString());
