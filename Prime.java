@@ -24,11 +24,6 @@ class Prime {
             }
         }
 
-        //If primes are already found then start at the next possible prime
-        if (primes.size() > 0) {
-            minPrime = primes.get(primes.size()-1) + 1;
-        }
-
         //Check all numbers up to and uncluding this.maxCheck
         for (int check = this.minPrime; check <= this.maxCheck; check++) {
             boolean isPrime = true;
