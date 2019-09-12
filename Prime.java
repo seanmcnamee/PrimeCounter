@@ -23,10 +23,15 @@ class Prime {
         //Check all numbers up to and uncluding this.maxCheck
         for (int check = this.minPrime; check <= this.maxCheck; check++) {
             boolean isPrime = true;
+            int maxPrime = (int)(Math.sqrt(check));
 
             //Check if the current number, 'check', is divisible by any previously found primes. If it is, 'check' is composite
             for (int index = 0; index < primes.size(); index++) {
-                if (check % primes.get(index) == 0) {
+                int prime = primes.get(index);
+                if (prime > maxPrime) {
+                    break;
+                }
+                if (check % prime == 0 ) {
                     isPrime = false;
                     break;
                 }
