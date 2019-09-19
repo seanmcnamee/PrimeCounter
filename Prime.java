@@ -2,23 +2,27 @@ import java.util.ArrayList;
 
 class Prime {
 
-    private int[] primes;
-    private int maxCheck;
-    private final int minPrime = 2;
+    protected int[] primes;
+    protected int maxCheck;
+    protected int minPrime = 2;
 
 
     public Prime(int maxToCheck) {
         maxCheck = maxToCheck;
-        this.findPrimes();
     }
+
 
     /**
      * Calculates all the primes up to and including this.maxCheck
      * For each number that it checks, sees if any previous primes are divisible. If none are, it is a prime
-     * 
      */
     public void findPrimes() {
         ArrayList<Integer> primes = new ArrayList<Integer> ();
+        if (this.primes != null) {
+            for (int i = 0; i < this.primes.length; i++){
+                primes.add(this.primes[i]);
+            }
+        }
 
         //Check all numbers up to and uncluding this.maxCheck
         for (int check = this.minPrime; check <= this.maxCheck; check++) {
@@ -54,14 +58,21 @@ class Prime {
      * Prints out all the primes up to this.maxCheck
      */
     public void printPrimes() {
-        if (this.primes.length > 0) {
+        if (this.primes != null && this.primes.length > 0) {
             System.out.println("Primes up to " + maxCheck + ":");
             for (int i = 0; i < this.primes.length; i++) {
-                System.out.println("\t" + this.primes[i]);
+                int prime = this.primes[i];
+                if (prime > this.maxCheck) {
+                    break;
+                }   else {
+                    System.out.println("\t" + this.primes[i]);
+                }
+                
             }
         }   else {
             System.out.println("There are no primes up to " + maxCheck + ".");
         }
         
     }
+
 }

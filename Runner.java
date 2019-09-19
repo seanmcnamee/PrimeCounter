@@ -1,11 +1,17 @@
 class Runner {
     public static void main(String[] args) {
-        //Figure out primes to a certain amount and prints them out along with how long it took to find the primes.
-        System.out.println("Primes...");
+
+        /**
+         * Creates a PrimeSaver, which will handle figuring out the prime numbers and storing them
+         * Print out the primes, the time elapsed, and stores all the primes on file (if a new one could've been found).
+         */
+        PrimeSaver p = new PrimeSaver(1000);
         long startTime = System.currentTimeMillis();
-        Prime p = new Prime(100);
+        p.findPrimes();
         long timeElapsed = System.currentTimeMillis() - startTime;
         p.printPrimes();
         System.out.println("Took " + timeElapsed + " miliseconds");
+        p.StorePrimes();
+
     }
 }
